@@ -77,9 +77,7 @@ export default function CheckingPaciente() {
                     </Button>
                 </Form>
             </Row>
-            <div className="justify-content-center">
-                    {boxCheckingPaciente(enablePaciente)}
-            </div>
+                {boxCheckingPaciente(enablePaciente)}
         </div>
     )
 }
