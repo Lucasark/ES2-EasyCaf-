@@ -1,14 +1,10 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import {Row, Form, Card} from "react-bootstrap";
+import Button from "../Model/CustomButton";
+import CustomBox from "../Model/CustomBox"
 
-
-class CadastroExame extends Component {
-    render(){
-        return(
-            <div>
-                <p>C.P</p>
-            </div>
-        )
-    }
+export default props => {
+    return(
+        <></>
+    )
 }
-
-export default CadastroExame;
