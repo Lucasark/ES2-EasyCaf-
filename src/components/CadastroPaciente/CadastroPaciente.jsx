@@ -145,13 +145,13 @@ export default props => {
 
         API.post('/paciente',
             {
-                cpf : cpf,
+                cpf : cpf.toString(),
                 nome : nome,
                 email : email,
-                nascimento: "1970-01-01",
+                data_nascimento : nascimento,
                 peso: peso,
                 altura: altura,
-                sexo: sexo,
+                sexo: sexo
             }
         )
 
