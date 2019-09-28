@@ -136,22 +136,24 @@ export default props => {
     }
 
     const cadastrarPaciente = event => {
-        axios.defaults.baseURL = 'http://18.234.60.80:3300';
-        axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
-        axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+        const API_URL = 'http://18.234.60.80:3300';
 
-        axios.post('/paciente', {
-            cpf : cpf,
-            nome : nome,
-            email : email,
-            data_nascimento : nascimento,
-            peso: peso,
-            altura: altura,
-            sexo: sexo
-        })
-        .then(function (response) {
-            console.log(response);
-        })
+        const API = axios.create({
+            baseURL: API_URL,
+            headers: { 'Content-Type' : 'application/json' },
+        });
+
+        API.post('/paciente',
+            {
+                cpf : cpf,
+                nome : nome,
+                email : email,
+                nascimento: "1970-01-01",
+                peso: peso,
+                altura: altura,
+                sexo: sexo,
+            }
+        )
 
        setCadastro(1)
     }
