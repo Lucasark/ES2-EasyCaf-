@@ -136,7 +136,7 @@ export default props => {
     }
 
     const cadastrarPaciente = event => {
-        const API_URL = 'http://18.234.60.80:3300';
+        const API_URL = 'http://127.0.0.1:3000';
 
         const API = axios.create({
             baseURL: API_URL,
