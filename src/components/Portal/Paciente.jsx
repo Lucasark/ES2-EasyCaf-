@@ -16,7 +16,7 @@ export default props => {
                     </Form.Group>
                 </Form>
                 <Popup 
-                    trigger={<Button style={{backgroundColor: 'green', color: 'white', borderColor:'white'}} pullRight fill bsstyle="info">Novo Paciente</Button>} 
+                    trigger={<Button style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'right', marginLeft: '35%', minWidth: '150px'}} pullRight fill bsstyle="info">Novo Paciente</Button>} 
                     position="right center" 
                     modal
                 >
