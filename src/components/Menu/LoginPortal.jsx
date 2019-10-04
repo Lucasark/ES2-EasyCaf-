@@ -50,7 +50,7 @@ export default props => {
                         <Form.Control.Feedback type="invalid">Digite a Senha</Form.Control.Feedback>
                     </Form.Group>
                 </Form.Row>
-                <Button className="btn-fill centerButton" type="submit" bsStyle="primary" onClick={console.log("teste")}>Entrar no Portal </Button>
+                <Button className="btn-fill centerButton" type="submit" bsStyle="primary">Entrar no Portal </Button>
             </Form>
         </div>
     )
