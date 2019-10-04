@@ -1,28 +1,45 @@
-import React, { useState } from "react";
-import { Card, Form } from "react-bootstrap";
-import Popup from "reactjs-popup";
-import Button from "../Model/CustomButton";
-import CadastroPaciente from '../CadastroPaciente/CadastroPaciente'
+import React, { useState }from "react";
+import CadastroPaciente from '../CadastroPaciente/CadastroPaciente';
+import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import PacienteLista from "./PacienteLista";
+import { Button } from "react-bootstrap";
 
 export default props => {
+    const [handle, setHandle] = useState(true);
+
+    const handleCont = () => {
+        if(handle) {
+            return(
+                <PacienteLista></PacienteLista>
+            )
+        }
+        else{
+            return(
+                <CadastroPaciente></CadastroPaciente>
+            )
+        }
+    }
 
     return(
         <div>
             <h2>Pacientes</h2>
-            <Card style={{flexDirection: "row"}}>
-                <Form style={{width: '50%'}}>
-                    <Form.Group >
-                        <Form.Control placeholder="paciente"/>
-                    </Form.Group>
-                </Form>
-                <Popup 
-                    trigger={<Button style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'right', marginLeft: '35%', minWidth: '150px'}} pullRight fill bsstyle="info">Novo Paciente</Button>} 
-                    position="right center" 
-                    modal
-                >
-                    <CadastroPaciente></CadastroPaciente>
-                </Popup>
-            </Card>
+            <Button 
+                style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'left', minWidth: '150px'}} 
+                pullRight 
+                fill 
+                bsstyle="info"
+                onClick={() => setHandle(true)}>
+                Voltar</Button>
+            <Button 
+                style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'right',marginLeft: '35%', minWidth: '150px'}} 
+                pullRight 
+                fill 
+                bsstyle="info"
+                onClick={() => setHandle(false)}>
+                Novo Paciente</Button>
+            <div style={{marginTop: '80px'}}>
+                {handleCont()}
+            </div>
         </div>
     );
 }
