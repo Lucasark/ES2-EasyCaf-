@@ -47,21 +47,19 @@ export default props => {
     const transitionPop = (valid) => {
         if (valid == 0) {
             return(
-                <Row className="justify-content-center">
                     <Form>
-                        <Form.Group>
-
+                        <Form.Group className="col-md-6" style={{marginLeft:'2%'}}>
                             <Form.Label>CPF:</Form.Label>
-                            <Form.Control
+                            <Form.Control style={{marginBottom:'2%'}}
                                 value={cpf}
                                 required
                                 type= "text"
                                 placeholder = "Cpf"
                                 onChange={handleCpfChange}
                             />
-
+                           
                             <Form.Label>Nome:</Form.Label>
-                            <Form.Control
+                            <Form.Control style={{marginBottom:'2%'}}
                                 value={nome}
                                 required
                                 type= "text"
@@ -70,7 +68,7 @@ export default props => {
                             />
 
                             <Form.Label>E-mail:</Form.Label>
-                            <Form.Control
+                            <Form.Control style={{marginBottom:'2%'}}
                                 value={email}
                                 required
                                 type= "email"
@@ -79,7 +77,7 @@ export default props => {
                             />
 
                             <Form.Label>Data de Nascimento:</Form.Label>
-                            <Form.Control
+                            <Form.Control style={{marginBottom:'2%'}}
                                 value={nascimento}
                                 required
                                 type= "date"
@@ -87,7 +85,7 @@ export default props => {
                                 onChange={handleNascimentoChange}
                             />
                             <Form.Label>Peso:</Form.Label>
-                            <Form.Control
+                            <Form.Control style={{marginBottom:'2%'}}
                                 value={peso}
                                 required
                                 type= "number"
@@ -96,7 +94,7 @@ export default props => {
                             />
 
                             <Form.Label>Altura:</Form.Label>
-                            <Form.Control
+                            <Form.Control style={{marginBottom:'2%'}}
                                 value={altura}
                                 required
                                 type= "number"
@@ -105,20 +103,18 @@ export default props => {
                             />
 
                             <Form.Label>Sexo:</Form.Label>
-                            <Form.Control
+                            <Form.Control style={{marginBottom:'2%'}}
                                 value={sexo}
                                 required
                                 type= "text"
                                 placeholder = "sexo"
                                 onChange={handleSexoChange}
                             />  
-
-                        </Form.Group>
-                        <Button onClick={() => cadastrarPaciente()} bsstyle="info" pullRight fill>
+                            <Button onClick={() => cadastrarPaciente()} bsstyle="info"  pullRight fill>
                                 Cadastrar
-                        </Button>
+                            </Button>
+                        </Form.Group>
                     </Form>
-                </Row>
             )
         }
         else if(valid == 1){

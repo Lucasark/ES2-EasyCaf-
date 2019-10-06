@@ -39,18 +39,18 @@ export default props => {
         <div>
             <Form noValidate validated={validated} onSubmit={loginValid} className="justify-content-center">
                 <Form.Row className="justify-content-center">
-                    <Form.Group className="col-md-3" controlId="formGridReg">
+                    <Form.Group className="col-md-5 " controlId="formGridReg">
                         <Form.Label>Número de Registro:</Form.Label>
                         <Form.Control value={numero} required type="text" onChange={handleNumeroChange}/>
                         <Form.Control.Feedback type="invalid">Digite o Número de Registro</Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group className="col-md-3" controlId="formGridSenha">
+                    <Form.Group className="col-md-5 " controlId="formGridSenha">
                         <Form.Label>Senha</Form.Label>
                         <Form.Control value={senha} required type="password" onChange={handleSenhaChange}/>
                         <Form.Control.Feedback type="invalid">Digite a Senha</Form.Control.Feedback>
                     </Form.Group>
                 </Form.Row>
-                <Button className="btn-fill centerButton" type="submit" bsStyle="primary">Entrar no Portal </Button>
+                    <Button className="btn-fill col-md-3 offset-md-1" type="submit" bsStyle="primary">Entrar no Portal </Button>
             </Form>
         </div>
     )
