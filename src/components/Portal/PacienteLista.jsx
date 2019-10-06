@@ -1,33 +1,47 @@
 import React, { useState, useEffect } from "react";
-import { Form, Table, Pagination } from "react-bootstrap";
-//import API from '';
+import { FormControl, Table, InputGroup, Button } from "react-bootstrap";
+import Pagination from '../Model/Pagination';
+import Posts from '../Model/Posts'
 import axios from 'axios';
+
 export default props => {
 
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
+    const [names] = useState(['Joao', 'Pedro', 'Caio', 'Jorge'])
 
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
-
-            const res = await axios.get('http://127.0.0.1:3000/paciente/');
-            setPosts(res.data);
-            console.log(res.data)
+            const res = await axios.get('http://127.0.0.1:3000/paciente/')
+            setPosts(res.data.data);
             setLoading(false);
         };
         fetchPosts();
     }, []);
 
+    console.log(posts.length);
+
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
     return (
         <div>
-            <Form style={{ width: '50%' }}>
-                <Form.Group >
-                    <Form.Control placeholder="paciente" />
-                </Form.Group>
-            </Form>
+            <div style={{minHeight: '40px', height: '40px', marginBottom: '1%'}}>
+                <InputGroup className="mb-3" style={{ width: '50%', height:'100%'}}>
+                    <InputGroup.Prepend style={{height:'100%'}}>
+                        <Button style={{height:'100%'}}>Button</Button>
+                    </InputGroup.Prepend>
+                    <FormControl
+                        placeholder='Paciente'
+                    />
+                </InputGroup>
+            </div>
             <Table>
                 <thead>
                     <tr>
@@ -38,40 +52,13 @@ export default props => {
                         <th>Altura</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    <tr>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    <tr>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    {}
-                </tbody>
+                <Posts posts={currentPosts} loading={loading} />
             </Table>
-            <div>
-                <Pagination className="justify-content-center">
-                    <Pagination.First />
-                    <Pagination.Prev />
-                    <Pagination.Item>{1}</Pagination.Item>
-                    <Pagination.Next />
-                    <Pagination.Last />
-                </Pagination>
-            </div>
+            <Pagination
+                postsPerPage={postsPerPage}
+                totalPosts={posts.length}
+                paginate={paginate}
+            />
         </div>
 
     )
