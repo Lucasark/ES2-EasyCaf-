@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Row, Form } from "react-bootstrap";
+import { Row, Form } from "react-bootstrap";
 import Button from "../Model/CustomButton";
 import axios from 'axios';
 
@@ -46,115 +46,131 @@ export default props => {
 
     const transitionPop = (valid) => {
         if (valid == 0) {
-            return(
-                    <Form>
-                        <Form.Group className="col-md-6" style={{marginLeft:'2%'}}>
-                            <Form.Label>CPF:</Form.Label>
-                            <Form.Control style={{marginBottom:'2%'}}
-                                value={cpf}
-                                required
-                                type= "text"
-                                placeholder = "Cpf"
-                                onChange={handleCpfChange}
-                            />
-                           
-                            <Form.Label>Nome:</Form.Label>
-                            <Form.Control style={{marginBottom:'2%'}}
-                                value={nome}
-                                required
-                                type= "text"
-                                placeholder = "Nome"
-                                onChange={handleNomeChange}
-                            />
+            return (
+                <Form>
+                    <Form.Group className="col-md-6" style={{ marginLeft: '2%' }}>
+                        <Form.Label>CPF:</Form.Label>
+                        <Form.Control
+                            style={{ marginBottom: '2%' }}
+                            value={cpf}
+                            required
+                            type="text"
+                            placeholder="CPF"
+                            onChange={handleCpfChange}
+                        />
 
-                            <Form.Label>E-mail:</Form.Label>
-                            <Form.Control style={{marginBottom:'2%'}}
-                                value={email}
-                                required
-                                type= "email"
-                                placeholder = "E-mail"
-                                onChange={handleEmailChange}
-                            />
+                        <Form.Label>Nome:</Form.Label>
+                        <Form.Control
+                            style={{ marginBottom: '2%' }}
+                            value={nome}
+                            required
+                            type="text"
+                            placeholder="Nome"
+                            onChange={handleNomeChange}
+                        />
 
-                            <Form.Label>Data de Nascimento:</Form.Label>
-                            <Form.Control style={{marginBottom:'2%'}}
-                                value={nascimento}
-                                required
-                                type= "date"
-                                placeholder = "Data de Nascimento"
-                                onChange={handleNascimentoChange}
-                            />
-                            <Form.Label>Peso:</Form.Label>
-                            <Form.Control style={{marginBottom:'2%'}}
-                                value={peso}
-                                required
-                                type= "number"
-                                placeholder = "Peso"
-                                onChange={handlePesoChange}
-                            />
+                        <Form.Label>E-mail:</Form.Label>
+                        <Form.Control
+                            style={{ marginBottom: '2%' }}
+                            value={email}
+                            required
+                            type="email"
+                            placeholder="E-mail"
+                            onChange={handleEmailChange}
+                        />
 
-                            <Form.Label>Altura:</Form.Label>
-                            <Form.Control style={{marginBottom:'2%'}}
-                                value={altura}
-                                required
-                                type= "number"
-                                placeholder = "Altura"
-                                onChange={handleAlturaChange}
-                            />
+                        <Form.Label>Data de Nascimento:</Form.Label>
+                        <Form.Control
+                            style={{ marginBottom: '2%' }}
+                            value={nascimento}
+                            required
+                            type="date"
+                            placeholder="Data de Nascimento"
+                            onChange={handleNascimentoChange}
+                        />
+                        <Form.Label>Peso:</Form.Label>
+                        <Form.Control
+                            style={{ marginBottom: '2%' }}
+                            value={peso}
+                            required
+                            type="number"
+                            placeholder="Peso"
+                            onChange={handlePesoChange}
+                        />
 
-                            <Form.Label>Sexo:</Form.Label>
-                            <Form.Control style={{marginBottom:'2%'}}
-                                value={sexo}
-                                required
-                                type= "text"
-                                placeholder = "sexo"
-                                onChange={handleSexoChange}
-                            />  
-                            <Button onClick={() => cadastrarPaciente()} bsstyle="info"  pullRight fill>
-                                Cadastrar
+                        <Form.Label>Altura:</Form.Label>
+                        <Form.Control
+                            style={{ marginBottom: '2%' }}
+                            value={altura}
+                            required
+                            type="number"
+                            placeholder="Altura"
+                            onChange={handleAlturaChange}
+                        />
+
+                        <Form.Label>Sexo:</Form.Label>
+                        <Form.Control
+                            style={{ marginBottom: '2%' }}
+                            value={sexo}
+                            required
+                            type="text"
+                            placeholder="sexo"
+                            onChange={handleSexoChange}
+                        />
+                        <Button onClick={() => cadastrarPaciente()} bsstyle="info" pullRight fill>
+                            Cadastrar
                             </Button>
-                        </Form.Group>
-                    </Form>
+                    </Form.Group>
+                </Form>
             )
         }
-        else if(valid == 1){
-            return(
+        else if (valid == 1) {
+            return (
                 <div>
-                    <p>{cpf}</p>
+                    <p>{message}</p>
                 </div>
             )
         }
-        else{
-            return(
+        else {
+            return (
                 <p>Error</p>
             )
         }
     }
 
-    const cadastrarPaciente = event => {
+    const cadastrarPaciente = () => {
         const API_URL = 'http://127.0.0.1:3000';
 
         const API = axios.create({
             baseURL: API_URL,
-            headers: { 'Content-Type' : 'application/json' },
+            headers: { 'Content-Type': 'application/json' },
         });
 
-        API.post('/paciente',
-            {
-                cpf : cpf.toString(),
-                nome : nome,
-                email : email,
-                data_nascimento : nascimento,
-                peso: peso,
-                altura: altura,
-                sexo: sexo
+        const creatUser = async () => {
+            const res = await API.post('/paciente',
+                {
+                    cpf: cpf.toString(),
+                    nome: nome,
+                    email: email,
+                    data_nascimento: nascimento,
+                    peso: peso,
+                    altura: altura,
+                    sexo: sexo
+                }
+            )
+            if (res.status == 201){
+                setCadastro(1)
+                setMessage(res.data.message)
             }
-        )
+            else{
+                setCadastro(-1)
+            }
+        }
+        creatUser();
 
-       setCadastro(1)
     }
-    
-    return(
+
+    return (
         transitionPop(cadastro)
     )
 }
