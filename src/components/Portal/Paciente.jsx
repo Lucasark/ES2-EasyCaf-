@@ -24,16 +24,12 @@ export default props => {
         <div>
             <h2>Pacientes</h2>
             <Button 
-                style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'left', minWidth: '150px'}} 
-                pullRight 
-                fill 
+                style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'left', minWidth: '150px'}}  
                 bsstyle="info"
                 onClick={() => setHandle(true)}>
                 Voltar</Button>
             <Button 
-                style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'right',marginLeft: '35%', minWidth: '150px'}} 
-                pullRight 
-                fill 
+                style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'right', marginLeft: '35%', minWidth: '150px'}} 
                 bsstyle="info"
                 onClick={() => setHandle(false)}>
                 Novo Paciente</Button>
