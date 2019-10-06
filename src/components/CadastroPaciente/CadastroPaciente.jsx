@@ -14,7 +14,7 @@ export default props => {
     const [altura, setAltura] = useState();
     const [sexo, setSexo] = useState();
     const [cadastro, setCadastro] = useState(0);
-    
+    const [message, setMessage] = useState();
 
     const handleCpfChange = event => {
         setCpf(event.target.value)
