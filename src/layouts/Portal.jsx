@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import Sidebar from "../components/Model/Sidebar";
 import Paciente from "../components/Portal/Paciente"
 import Home from "../components/Portal/Home"
+import RealizarExame from "../components/Portal/RealizarExame"
 import routes from "../routes"
 
 export default props => {
@@ -14,6 +15,7 @@ export default props => {
             <Switch>
               <Route path="/portal/home" render={({...props}) => <Home {...props}/>} />
               <Route path="/portal/paciente" component={Paciente} />
+              <Route path="/portal/realizarexame" component={RealizarExame} />
             </Switch>
           </div>
         </BrowserRouter>
