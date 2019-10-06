@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import Sidebar from "../components/Model/Sidebar";
 import Paciente from "../components/Portal/Paciente"
