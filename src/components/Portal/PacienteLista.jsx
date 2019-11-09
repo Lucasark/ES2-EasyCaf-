@@ -15,7 +15,7 @@ export default props => {
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
-            const res = await axios.get('http://127.0.0.1:3000/paciente/')
+            const res = await axios.get('https:/app-exasy-exam-es.herokuapp.com/paciente/')
             setPosts(res.data.data);
             setLoading(false);
         };
