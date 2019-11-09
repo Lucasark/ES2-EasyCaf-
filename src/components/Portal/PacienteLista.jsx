@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FormControl, Table, InputGroup, Button } from "react-bootstrap";
 import Pagination from '../Model/Pagination';
-import Posts from '../Model/Posts'
+import Posts from '../Model/Posts';
+import ButtonDefault from "../Model/CustomButton";
 import axios from 'axios';
 
 export default props => {
@@ -35,7 +36,7 @@ export default props => {
             <div style={{minHeight: '40px', height: '40px', marginBottom: '1%'}}>
                 <InputGroup className="mb-3" style={{ width: '50%', height:'100%'}}>
                     <InputGroup.Prepend style={{height:'100%'}}>
-                        <Button style={{height:'100%'}}>Button</Button>
+                    <ButtonDefault className="col-md-12" btnText="Buscar" style={{height:'100%', borderRadius: '2px'}}></ButtonDefault>
                     </InputGroup.Prepend>
                     <FormControl
                         placeholder='Paciente'
