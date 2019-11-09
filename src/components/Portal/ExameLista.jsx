@@ -3,6 +3,7 @@ import { FormControl, Table, InputGroup, Button } from "react-bootstrap";
 import Pagination from '../Model/Pagination';
 import PostsExames from '../Model/PostsExames'
 import axios from 'axios';
+import ButtonDefault from "../Model/CustomButton";
 
 export default props => {
 
@@ -32,14 +33,15 @@ export default props => {
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
-        <div>
+        <div class="container">
             <div style={{minHeight: '40px', height: '40px', marginBottom: '1%'}}>
                 <InputGroup className="mb-3" style={{ width: '50%', height:'100%'}}>
                     <InputGroup.Prepend style={{height:'100%'}}>
-                        <Button style={{height:'100%'}}>Button</Button>
+                    <ButtonDefault className="col-md-12" btnText="Buscar" style={{height:'100%', borderRadius: '2px',
+                borderBottomLeftRadius: '20px', borderTopLeftRadius: '20px'}}></ButtonDefault>
                     </InputGroup.Prepend>
                     <FormControl
-                        placeholder='Paciente'
+                        placeholder='Exame' style={{borderBottomRightRadius: '20px', borderTopRightRadius: '20px'}} 
                     />
                 </InputGroup>
             </div>
