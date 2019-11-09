@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Row, Form } from "react-bootstrap";
 import Button from "../Model/CustomButton";
+import ButtonDefault from "../Model/CustomButton";
 import axios from 'axios';
 
 export default props => {
@@ -117,9 +118,10 @@ export default props => {
                             placeholder="sexo"
                             onChange={handleSexoChange}
                         />
-                        <Button onClick={() => cadastrarPaciente()} bsstyle="info" pullRight fill>
+                        <ButtonDefault className="col-md-3" btnText="Cadastrar" style={{height:'40px'}}
+                         onClick={() => cadastrarPaciente()} bsstyle="info" pullRight fill>
                             Cadastrar
-                            </Button>
+                            </ButtonDefault>
                     </Form.Group>
                 </Form>
             )
