@@ -16,15 +16,13 @@ export default props => {
         const fetchPosts = async () => {
             setLoading(true);
             const res = await axios.get('https://app-exasy-exam-es.herokuapp.com/exame/')
-            console.log("AQUI", res.data.data)
             setPosts(res.data.data);
-            setLoading(false);
-            
+            setLoading(false);           
         };
         fetchPosts();
     }, []);
 
-    console.log(posts.length);
+
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -53,9 +51,10 @@ export default props => {
                         <th>Data de Criação</th>
                         <th>Paciente</th>
                         <th>Última Atulização</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
-                <PostsExames posts={currentPosts} loading={loading} />
+                <PostsExames exame={props.exame} handle={props.handle} posts={currentPosts} loading={loading} />
             </Table>
             <Pagination
                 postsPerPage={postsPerPage}

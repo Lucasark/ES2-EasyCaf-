@@ -171,6 +171,154 @@ export default props => {
                     </div>
                 </Card>
             </Row>
+            <Row className="col-md-12">
+                <Card className="d-flex flex-column col-md-12" style={{padding:"2%"}}>
+                    <h4>Exames Prévios</h4>
+                    <p style={{ fontSize: '12px' }}>Aceita múltipla</p>
+                    <div style={{borderStyle:'solid', borderWidth:'0.5px', borderColor:'#dddddd'}}></div>
+                    <div class="d-flex flex-column">
+                    <h7>ECO:</h7>
+                        <ToggleButtonGroup type="radio" name="options">
+                                <ToggleButton type="radio"  value={1}>
+                                        HAS
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={2}>
+                                        D.M 
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={3}>
+                                        Tabagismo
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={4}>
+                                        Ex-tabagismo 
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={5}>
+                                        Obesidade 
+                                </ToggleButton>
+                        </ToggleButtonGroup>
+                    <div style={{borderStyle:'solid', borderWidth:'0.5px', borderColor:'#dddddd'}}></div>
+                    <h7>TE:</h7>
+                        <ToggleButtonGroup type="radio" name="options">
+                                <ToggleButton type="radio"  value={1}>
+                                        Normal
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={2}>
+                                        METs
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={3}>
+                                        ECG
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={4}>
+                                        Dor 
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={5}>
+                                        Arritmia 
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={5}>
+                                        Baixa PA 
+                                </ToggleButton>
+                        </ToggleButtonGroup>
+                    <h7>CAT:</h7>
+                        <ToggleButtonGroup type="radio" name="options">
+                                <ToggleButton type="radio"  value={1}>
+                                        Normal
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={2}>
+                                        TCE
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={3}>
+                                        CX
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={4}>
+                                        DA 
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={5}>
+                                        CD 
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={5}>
+                                        SAF 
+                                </ToggleButton>
+                                
+                                <ToggleButton type="radio"  value={5}>
+                                        MAM 
+                                </ToggleButton>
+                        </ToggleButtonGroup>
+                        <h7>CM:</h7>
+                        <ToggleButtonGroup type="radio" name="options">
+                                <ToggleButton type="radio"  value={1}>
+                                        Normal
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={2}>
+                                        Isquemia
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={3}>
+                                        Fibrose
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={4}>
+                                        Isq/Fib 
+                                </ToggleButton>
+                                <ToggleButton type="radio"  value={5}>
+                                        Gated Alt. 
+                                </ToggleButton>
+                        </ToggleButtonGroup>
+
+                    </div> 
+                </Card>
+            </Row>
+            <Row className="col-md-12">
+                <Card className="d-flex flex-column col-md-12" style={{padding:"2%"}}>
+                    <h4>Medicamentos:</h4>
+                    <div className="row">
+                        <div className="col-md-6">
+                                <label>Bloq. Calcio</label>
+                                <input type="text" className="form-control"/>
+                        </div>
+                        <div className="col-md-6">
+                                <label >Clopido rel.</label>
+                                <input type="text" className="form-control"></input>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-6">
+                                <label >Nitrato</label>
+                                <input type="text" className="form-control"></input>
+                        </div>
+                        <div className="col-md-6">
+                                <label >AAS</label>
+                                <input type="text" className="form-control"></input>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-6">
+                                <label >Estatina</label>
+                                <input type="text" className="form-control"></input>
+                        </div>
+                        <div className="col-md-6">
+                                <label >B-Bloqueador</label>
+                                <input type="text" className="form-control"></input>
+                        </div>   
+                    </div>
+                    <div className="row">
+                        <div className="col-md-6">
+                                <label >BRA</label>
+                                <input type="text" className="form-control"></input>
+                        </div>
+                        <div className="col-md-6">
+                                <label >Diuretico</label>
+                                <input type="text" className="form-control"></input>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-6">
+                                <label >IECA</label>
+                                <input type="text" className="form-control"></input>
+                        </div>
+                        <div className="col-md-6">
+                                <label >Outros</label>
+                                <input type="text" className="form-control"></input>
+                        </div>   
+                    </div>
+                </Card>
+             </Row>
         </div>
 
 
