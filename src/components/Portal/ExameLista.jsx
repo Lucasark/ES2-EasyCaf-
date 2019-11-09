@@ -1,0 +1,66 @@
+import React, { useState, useEffect } from "react";
+import { FormControl, Table, InputGroup, Button } from "react-bootstrap";
+import Pagination from '../Model/Pagination';
+import PostsExames from '../Model/PostsExames'
+import axios from 'axios';
+
+export default props => {
+
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(10);
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            setLoading(true);
+            const res = await axios.get('https://app-exasy-exam-es.herokuapp.com/exame/')
+            console.log("AQUI", res.data.data)
+            setPosts(res.data.data);
+            setLoading(false);
+            
+        };
+        fetchPosts();
+    }, []);
+
+    console.log(posts.length);
+
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
+    return (
+        <div>
+            <div style={{minHeight: '40px', height: '40px', marginBottom: '1%'}}>
+                <InputGroup className="mb-3" style={{ width: '50%', height:'100%'}}>
+                    <InputGroup.Prepend style={{height:'100%'}}>
+                        <Button style={{height:'100%'}}>Button</Button>
+                    </InputGroup.Prepend>
+                    <FormControl
+                        placeholder='Paciente'
+                    />
+                </InputGroup>
+            </div>
+            <Table>
+                <thead>
+                    <tr>
+                        <th>Identificador</th>
+                        <th>Estado</th>
+                        <th>Data de Criação</th>
+                        <th>Paciente</th>
+                        <th>Última Atulização</th>
+                    </tr>
+                </thead>
+                <PostsExames posts={currentPosts} loading={loading} />
+            </Table>
+            <Pagination
+                postsPerPage={postsPerPage}
+                totalPosts={posts.length}
+                paginate={paginate}
+            />
+        </div>
+
+    )
+}

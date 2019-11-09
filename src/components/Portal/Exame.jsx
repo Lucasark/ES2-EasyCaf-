@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap"
+//import CadastroPaciente from '../CadastroPaciente/CadastroPaciente';
+//import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import ExameLista from "./ExameLista";
+import { Button } from "react-bootstrap";
 
 export default props => {
-    return(
-        <Card>
-            
-        </Card>
+    return (
+        <div>
+            <h2>Exames</h2>
+            <ExameLista></ExameLista>
+        </div>
     );
 }
