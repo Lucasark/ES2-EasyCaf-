@@ -1,10 +1,26 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap"
+//import CadastroPaciente from '../CadastroPaciente/CadastroPaciente';
+//import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import ExameCadastro from "../Model/ExameCadastro"
+import ExameLista from "./ExameLista";
 
 export default props => {
-    return(
-        <Card>
-            
-        </Card>
+
+    const [tela, setTela] = useState(1);
+    const [exame, setExame] = useState({});
+
+    const handleTela = () =>{
+        switch(tela){
+            case 1:
+                return(<ExameLista handle={setTela} exame={setExame}></ExameLista>)
+            case 2:
+                return(<ExameCadastro exame={exame}></ExameCadastro>)
+        }
+    }
+    return (
+        <div class="container">
+            <h2 style={{marginLeft: '1.3%'}}>Exames</h2>
+            {handleTela()}
+        </div>
     );
 }

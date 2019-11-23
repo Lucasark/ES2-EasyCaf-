@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FormControl, Table, InputGroup, Button } from "react-bootstrap";
 import Pagination from '../Model/Pagination';
-import Posts from '../Model/Posts';
-import ButtonDefault from "../Model/CustomButton";
+import PostsExames from '../Model/PostsExames'
 import axios from 'axios';
+import ButtonDefault from "../Model/CustomButton";
 
 export default props => {
 
@@ -11,19 +11,18 @@ export default props => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
-    const [names] = useState(['Joao', 'Pedro', 'Caio', 'Jorge'])
 
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
-            const res = await axios.get('https:/app-exasy-exam-es.herokuapp.com/paciente/')
+            const res = await axios.get('https://app-exasy-exam-es.herokuapp.com/exame/')
             setPosts(res.data.data);
-            setLoading(false);
+            setLoading(false);           
         };
         fetchPosts();
     }, []);
 
-    console.log(posts.length);
+
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -32,7 +31,7 @@ export default props => {
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
-        <div>
+        <div class="container">
             <div style={{minHeight: '40px', height: '40px', marginBottom: '1%'}}>
                 <InputGroup className="mb-3" style={{ width: '50%', height:'100%'}}>
                     <InputGroup.Prepend style={{height:'100%'}}>
@@ -40,21 +39,22 @@ export default props => {
                 borderBottomLeftRadius: '20px', borderTopLeftRadius: '20px'}}></ButtonDefault>
                     </InputGroup.Prepend>
                     <FormControl
-                        placeholder='Paciente' style={{borderBottomRightRadius: '20px', borderTopRightRadius: '20px'}}
+                        placeholder='Exame' style={{borderBottomRightRadius: '20px', borderTopRightRadius: '20px'}} 
                     />
                 </InputGroup>
             </div>
             <Table>
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Data de Nascimento</th>
-                        <th>Peso</th>
-                        <th>Altura</th>
+                        <th>Identificador</th>
+                        <th>Estado</th>
+                        <th>Data de Criação</th>
+                        <th>Paciente</th>
+                        <th>Última Atulização</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
-                <Posts posts={currentPosts} loading={loading} />
+                <PostsExames exame={props.exame} handle={props.handle} posts={currentPosts} loading={loading} />
             </Table>
             <Pagination
                 postsPerPage={postsPerPage}

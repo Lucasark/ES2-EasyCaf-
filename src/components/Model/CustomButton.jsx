@@ -35,7 +35,7 @@ import "./CustomButton.css";
 export default props => {
 
   return (
-    <button className={props.className+' botaoNovo'}>{props.btnText}</button>
+    <button {...props} className={props.className+' botaoNovo'} style={props.style}>{props.btnText}</button>
   );
 
 }
