@@ -141,7 +141,7 @@ export default props => {
     }
 
     const cadastrarPaciente = () => {
-        const API_URL = 'http://127.0.0.1:3000';
+        const API_URL = 'https://app-exasy-exam-es.herokuapp.com/';
 
         const API = axios.create({
             baseURL: API_URL,
