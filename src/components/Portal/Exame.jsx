@@ -18,8 +18,8 @@ export default props => {
         }
     }
     return (
-        <div>
-            <h2>Exames</h2>
+        <div class="container">
+            <h2 style={{marginLeft: '1.3%'}}>Exames</h2>
             {handleTela()}
         </div>
     );

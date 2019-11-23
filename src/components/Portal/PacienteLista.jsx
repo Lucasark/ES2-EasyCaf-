@@ -36,10 +36,11 @@ export default props => {
             <div style={{minHeight: '40px', height: '40px', marginBottom: '1%'}}>
                 <InputGroup className="mb-3" style={{ width: '50%', height:'100%'}}>
                     <InputGroup.Prepend style={{height:'100%'}}>
-                    <ButtonDefault className="col-md-12" btnText="Buscar" style={{height:'100%', borderRadius: '2px'}}></ButtonDefault>
+                    <ButtonDefault className="col-md-12" btnText="Buscar" style={{height:'100%', borderRadius: '2px',
+                borderBottomLeftRadius: '20px', borderTopLeftRadius: '20px'}}></ButtonDefault>
                     </InputGroup.Prepend>
                     <FormControl
-                        placeholder='Paciente'
+                        placeholder='Paciente' style={{borderBottomRightRadius: '20px', borderTopRightRadius: '20px'}}
                     />
                 </InputGroup>
             </div>
