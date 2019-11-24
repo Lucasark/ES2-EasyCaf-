@@ -3,6 +3,7 @@ import React, { useState } from "react";
 //import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import ExameCadastro from "../Model/ExameCadastro"
 import ExameLista from "./ExameLista";
+import PosExame from '../Exame/PosExame';
 
 export default props => {
 
@@ -14,11 +15,14 @@ export default props => {
             case 1:
                 return(<ExameLista handle={setTela} exame={setExame}></ExameLista>)
             case 2:
-                return(<ExameCadastro exame={exame}></ExameCadastro>)
+                return(<ExameCadastro exame={exame} handle={setTela}></ExameCadastro>)
+            case 3:
+                return(<PosExame handle={setTela} exame={setExame}></PosExame>)
         }
     }
+
     return (
-        <div class="container">
+        <div className="container">
             <h2 style={{marginLeft: '1.3%'}}>Exames</h2>
             {handleTela()}
         </div>
