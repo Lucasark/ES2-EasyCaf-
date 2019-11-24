@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import axios from 'axios';
-import Button from "../Model/CustomButton";
-import {Row, Form } from "react-bootstrap";
-
+import React from "react";
 
 export default props => {
     const data = new Date();
@@ -16,8 +12,6 @@ export default props => {
         mes = '0' + mes.toString();
     }
     return (
-        
-            <div className="col-md-5">Data: {day}/{mes}/{ano}</div>
-        
+        <div className="col-md-5">Data: {day}/{mes}/{ano}</div>
     );
 }
