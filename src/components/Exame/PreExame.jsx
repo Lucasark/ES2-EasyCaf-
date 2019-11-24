@@ -189,7 +189,9 @@ export default props => {
                 <label className="col-md-2">Pacientes:</label>
                 <input className="form-control col-md-7" value={paciente} onChange={e => setPaciente(e.target.value)}/>
                 <div className="col-md-1">ou</div>
-                <ButtonDefault className="col-md-2" btnText="Novo"></ButtonDefault>
+                <form className="col-md-2" action="/portal/paciente">
+                    <ButtonDefault btntext="Novo" type="submit"></ButtonDefault>
+                </form>
             </Row>
             <Row className="col-md-12">
                 <Card className="col-md-6" style={{padding:"1%"}}>
@@ -198,13 +200,13 @@ export default props => {
                     <div className="d-flex flex-column">
                         <ToggleButtonGroup type="checkbox">
                             <ToggleButton type="checkbox"  value={1} onChange={() => setDorToraxica(dorToraxica ? false : true)} >
-                                    Dor torácica
+                                Dor torácica
                             </ToggleButton>
                             <ToggleButton type="checkbox"  value={2} onChange={() => setPosSCA(posSCA ? false : true)}>
-                                    pós-SCA
+                                pós-SCA
                             </ToggleButton>
                             <ToggleButton type="checkbox"  value={3} onChange={() => setPosCRVM(posCRVM ? false : true)}>
-                                    pós-CRVM
+                                pós-CRVM
                             </ToggleButton>
                         </ToggleButtonGroup>
                         <ToggleButtonGroup type="checkbox">
@@ -277,8 +279,8 @@ export default props => {
                     <h4>HPP</h4>
                     <p style={{ fontSize: '12px' }}>Aceita múltipla</p>
                     <div style={{borderStyle:'solid', borderWidth:'0.5px', borderColor:'#dddddd'}}></div>
-                    <div class="d-flex flex-column">
-                        <h7>Fatores de risco:</h7>
+                    <div className="d-flex flex-column">
+                        <p>Fatores de risco:</p>
                         <ToggleButtonGroup type="checkbox">
                                 <ToggleButton type="checkbox"  value={1} onChange={() => setHas(has ? false : true)}>
                                         HAS
@@ -307,7 +309,7 @@ export default props => {
                         </ToggleButtonGroup>
                         <div style={{borderStyle:'solid', borderWidth:'0.5px', borderColor:'#dddddd'}}></div>
                         <div className="d-flex flex-column">
-                            <h7>DAC Prévia:</h7>
+                            <p>DAC Prévia:</p>
                             <ToggleButtonGroup type="checkbox">
                                     <ToggleButton type="checkbox"  value={1} onChange={() => setIam(iam ? false : true)}>
                                             IAM
@@ -324,7 +326,7 @@ export default props => {
                             </ToggleButtonGroup>
                         </div>
                         <div className="d-flex flex-column">
-                            <h7>Comorbidades:</h7>
+                            <p>Comorbidades:</p>
                             <ToggleButtonGroup type="checkbox">
                                     <ToggleButton type="checkbox"  value={1} onChange={() => setAvc(avc? false : true)}>
                                             AVC
@@ -348,8 +350,8 @@ export default props => {
                     <h4>Exames Prévios</h4>
                     <p style={{ fontSize: '12px' }}>Aceita múltipla</p>
                     <div style={{borderStyle:'solid', borderWidth:'0.5px', borderColor:'#dddddd'}}></div>
-                    <div class="d-flex flex-column">
-                    <h7>ECO:</h7>
+                    <div className="d-flex flex-column">
+                    <p>ECO:</p>
                         <ToggleButtonGroup type="radio" name="options">
                                 <ToggleButton type="radio"  value={1} onChange={() => setEco(1)}>
                                         HAS
@@ -368,7 +370,7 @@ export default props => {
                                 </ToggleButton>
                         </ToggleButtonGroup>
                     <div style={{borderStyle:'solid', borderWidth:'0.5px', borderColor:'#dddddd'}}></div>
-                    <h7>TE:</h7>
+                    <h5>TE:</h5>
                         <ToggleButtonGroup type="radio" name="options">
                                 <ToggleButton type="radio"  value={1} onChange={() => setTe(1)}>
                                         Normal
@@ -389,7 +391,7 @@ export default props => {
                                         Baixa PA 
                                 </ToggleButton>
                         </ToggleButtonGroup>
-                    <h7>CAT:</h7>
+                    <h5>CAT:</h5>
                         <ToggleButtonGroup type="radio" name="options">
                                 <ToggleButton type="radio"  value={1} onChange={() => setCat(1)}>
                                         Normal
@@ -413,7 +415,7 @@ export default props => {
                                         MAM 
                                 </ToggleButton>
                         </ToggleButtonGroup>
-                        <h7>CM:</h7>
+                        <h5>CM:</h5>
                         <ToggleButtonGroup type="radio" name="options">
                                 <ToggleButton type="radio"  value={1} onChange={() => setCm(1)}>
                                         Normal
@@ -489,7 +491,7 @@ export default props => {
                         </div>   
                     </div>
                 </Card>
-                <ButtonDefault className="col-md-2" btnText="Finalizar" onClick={() => finalizar()}></ButtonDefault>
+                <ButtonDefault className="col-md-2" btntext="Finalizar" onClick={() => finalizar()}></ButtonDefault>
              </Row>
         </div>
     );
