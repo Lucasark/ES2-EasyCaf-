@@ -118,8 +118,8 @@ export default props => {
                             placeholder="sexo"
                             onChange={handleSexoChange}
                         />
-                        <ButtonDefault className="col-md-3" btnText="Cadastrar" style={{height:'40px'}}
-                         onClick={() => cadastrarPaciente()} bsstyle="info" pullRight fill>
+                        <ButtonDefault className="col-md-3" btntext="Cadastrar" style={{height:'40px'}}
+                         onClick={() => cadastrarPaciente()} bsstyle="info">
                             Cadastrar
                             </ButtonDefault>
                     </Form.Group>
