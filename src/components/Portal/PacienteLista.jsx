@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FormControl, Table, InputGroup, Button } from "react-bootstrap";
+import { FormControl, Table, InputGroup} from "react-bootstrap";
 import Pagination from '../Model/Pagination';
 import Posts from '../Model/Posts';
 import ButtonDefault from "../Model/CustomButton";
@@ -11,7 +11,6 @@ export default props => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
-    const [names] = useState(['Joao', 'Pedro', 'Caio', 'Jorge'])
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -36,7 +35,7 @@ export default props => {
             <div style={{minHeight: '40px', height: '40px', marginBottom: '1%'}}>
                 <InputGroup className="mb-3" style={{ width: '50%', height:'100%'}}>
                     <InputGroup.Prepend style={{height:'100%'}}>
-                    <ButtonDefault className="col-md-12" btnText="Buscar" style={{height:'100%', borderRadius: '2px',
+                    <ButtonDefault className="col-md-12" btntext="Buscar" style={{height:'100%', borderRadius: '2px',
                 borderBottomLeftRadius: '20px', borderTopLeftRadius: '20px'}}></ButtonDefault>
                     </InputGroup.Prepend>
                     <FormControl

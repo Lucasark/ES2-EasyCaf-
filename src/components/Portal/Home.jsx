@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default props => {
     return(
-        <h1>Home</h1>
+        <div>
+            <h1>Home</h1>
+            <h1>Seja Bem Vindo ao Portal :D</h1>
+        </div>
     );
 }

@@ -26,7 +26,7 @@ const routes = [
     },
     {
         path: "/RealizarExame",
-        name: "RealizarExame",
+        name: "Realizar Exame",
         component: RealizarExame,
         layout: "/portal"
     },
