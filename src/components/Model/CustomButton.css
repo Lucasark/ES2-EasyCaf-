@@ -12,3 +12,19 @@
     background: #bbbbbb !important;
     color: #3f3f3f !important;
 }
+
+.checkboxStyle::before{
+    background: #3f3f3f ;
+    color: #bbbbbb ;
+}
+
+.checkboxStyle::after{
+    background: #3f3f3f ;
+    color: #bbbbbb ;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #dfdfdf !important;
+    background-color: #3f3f3f !important;
+    border-color: #6d6d6d !important;
+}
