@@ -18,6 +18,8 @@ export default props => {
                 return(<ExameCadastro exame={exame} handle={setTela}></ExameCadastro>)
             case 3:
                 return(<PosExame handle={setTela} exame={exame}></PosExame>)
+            default:
+                return(<h1>404</h1>)
         }
     }
 

@@ -1,13 +1,10 @@
 import React, { useState }from "react";
 import CadastroPaciente from '../CadastroPaciente/CadastroPaciente';
-import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import PacienteLista from "./PacienteLista";
-import { Button } from "react-bootstrap";
 import ButtonDefault from "../Model/CustomButton"; 
 
 export default props => {
     const [handle, setHandle] = useState(true);
-    const [button, setButton] = useState(null);
 
     const handleCont = () => {
         if(handle) {

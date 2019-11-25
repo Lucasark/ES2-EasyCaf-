@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
 import PreExame from '../Exame/PreExame';
 import PosExame from '../Exame/PosExame';
 
 
 export default props => {
 
-    const [tela, setTela] = useState(props.tela ? props.tela : 1);
+    const [tela] = useState(props.tela ? props.tela : 1);
 
     const handleTela = () =>{
         switch(tela){
@@ -14,6 +13,8 @@ export default props => {
                 return(<PreExame></PreExame>)
             case 2:
                 return(<PosExame></PosExame>)
+            default:
+                return(<p>404</p>)
         }
     }
     

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FormControl, Table, InputGroup, Button } from "react-bootstrap";
+import { FormControl, Table, InputGroup } from "react-bootstrap";
 import Pagination from '../Model/Pagination';
 import PostsExames from '../Model/PostsExames'
 import axios from 'axios';
