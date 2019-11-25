@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ButtonDefault from "../Model/CustomButton";
-import { Row, ToggleButton, ToggleButtonGroup, Card } from "react-bootstrap";
+import { Row, Card } from "react-bootstrap";
 
 export default props => {
     console.log(props.exame);
     let exame = props.exame;
-    
-    
+
+    const [ btnstatus, setBtnStatus ] = useState("")
+
+    useEffect(() =>{
+        if(props.exame.status === 'Pre-Exame' || props.exame.status === 'Pre'){
+            setBtnStatus('Estresse');
+        }
+        else{
+            setBtnStatus('Repouso');
+        }
+    }, []);
 
     return(
         <Row className="col-md-12">
@@ -66,7 +75,7 @@ export default props => {
                                         <p style={{fontVariant: 'all-petite-caps'}}>Equiv. Anginoso:{exame.exame_motivo.equiv_anginoso}</p>
                                     </div>
                                 </div>
-                        <ButtonDefault className="col-md-2" btntext="Estresse" onClick={() => props.handle(3)}></ButtonDefault>
+                        <ButtonDefault className="col-md-2" btntext={btnstatus} onClick={() => props.handle(3)}></ButtonDefault>
                     </div>
             </Card>
         </Row>
