@@ -17,7 +17,7 @@ export default props => {
             case 2:
                 return(<ExameCadastro exame={exame} handle={setTela}></ExameCadastro>)
             case 3:
-                return(<PosExame handle={setTela} exame={setExame}></PosExame>)
+                return(<PosExame handle={setTela} exame={exame}></PosExame>)
         }
     }
 
