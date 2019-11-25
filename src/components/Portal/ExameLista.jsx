@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FormControl, Table, InputGroup, Button } from "react-bootstrap";
+import { FormControl, Table, InputGroup } from "react-bootstrap";
 import Pagination from '../Model/Pagination';
 import PostsExames from '../Model/PostsExames'
 import axios from 'axios';
@@ -31,11 +31,11 @@ export default props => {
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
-        <div class="container">
+        <div className="container">
             <div style={{minHeight: '40px', height: '40px', marginBottom: '1%'}}>
                 <InputGroup className="mb-3" style={{ width: '50%', height:'100%'}}>
                     <InputGroup.Prepend style={{height:'100%'}}>
-                    <ButtonDefault className="col-md-12" btnText="Buscar" style={{height:'100%', borderRadius: '2px',
+                    <ButtonDefault className="col-md-12" btntext={"Buscar"} style={{height:'100%', borderRadius: '2px',
                 borderBottomLeftRadius: '20px', borderTopLeftRadius: '20px'}}></ButtonDefault>
                     </InputGroup.Prepend>
                     <FormControl

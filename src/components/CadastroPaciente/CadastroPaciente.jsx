@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Row, Form } from "react-bootstrap";
-import Button from "../Model/CustomButton";
+import { Form } from "react-bootstrap";
 import ButtonDefault from "../Model/CustomButton";
 import axios from 'axios';
 
 export default props => {
 
-    const [validated, setValidated] = useState(false);
     const [cpf, setCpf] = useState();
     const [nome, setNome] = useState();
     const [email, setEmail] = useState();
@@ -46,7 +44,7 @@ export default props => {
     }
 
     const transitionPop = (valid) => {
-        if (valid == 0) {
+        if (valid === 0) {
             return (
                 <Form>
                     <Form.Group className="col-md-6" style={{ marginLeft: '2%' }}>
@@ -118,15 +116,15 @@ export default props => {
                             placeholder="sexo"
                             onChange={handleSexoChange}
                         />
-                        <ButtonDefault className="col-md-3" btnText="Cadastrar" style={{height:'40px'}}
-                         onClick={() => cadastrarPaciente()} bsstyle="info" pullRight fill>
+                        <ButtonDefault className="col-md-3" btntext="Cadastrar" style={{height:'40px'}}
+                         onClick={() => cadastrarPaciente()} bsstyle="info">
                             Cadastrar
                             </ButtonDefault>
                     </Form.Group>
                 </Form>
             )
         }
-        else if (valid == 1) {
+        else if (valid === 1) {
             return (
                 <div>
                     <p>{message}</p>
@@ -160,7 +158,7 @@ export default props => {
                     sexo: sexo
                 }
             )
-            if (res.status == 201){
+            if (res.status === 201){
                 setCadastro(1)
                 setMessage(res.data.message)
             }

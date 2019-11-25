@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { Route } from "react-router-dom";
 
 export default props => {
 
@@ -21,7 +20,7 @@ export default props => {
             event.preventDefault();
             event.stopPropagation();
             //Trocar
-            props.history.push('/portal');
+            props.history.push('/portal/home');
         }
 
         setValidated(true);
@@ -50,7 +49,7 @@ export default props => {
                         <Form.Control.Feedback type="invalid">Digite a Senha</Form.Control.Feedback>
                     </Form.Group>
                 </Form.Row>
-                    <Button className="btn-fill col-md-3 offset-md-1" type="submit" bsStyle="primary">Entrar no Portal </Button>
+                    <Button className="btn-fill col-md-3 offset-md-1" type="submit" bsstyle="primary">Entrar no Portal </Button>
             </Form>
         </div>
     )

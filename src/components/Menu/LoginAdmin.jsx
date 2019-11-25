@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import {Row, Form, Card} from "react-bootstrap";
+import React from "react";
+import {Row, Form } from "react-bootstrap";
 import Button from "../Model/CustomButton";
-import CustomBox from "../Model/CustomBox"
 
 export default props => {
     return(
@@ -18,7 +17,7 @@ export default props => {
                         <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
                 </Form.Row>
-                    <Button type="submit" bsStyle="info" pullRight fill>
+                    <Button type="submit" bsstyle="info" pullRight fill>
                             Verificar Paciente
                     </Button>
                 </Form>

@@ -1,8 +1,6 @@
 import React, { useState }from "react";
 import CadastroPaciente from '../CadastroPaciente/CadastroPaciente';
-import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import PacienteLista from "./PacienteLista";
-import { Button } from "react-bootstrap";
 import ButtonDefault from "../Model/CustomButton"; 
 
 export default props => {
@@ -21,27 +19,27 @@ export default props => {
         }
     }
 
+    const handleButton= () => {
+        if(handle) {
+            return(
+                <ButtonDefault className="col-md-2" btntext="Novo Paciente" style={{float: 'right', height:'40px'}}
+                onClick={() => setHandle(false)}></ButtonDefault> 
+            )
+        }
+        else{
+            return(
+                <ButtonDefault className="col-md-2" btntext="Voltar" style={{height:'40px'}}
+                onClick={() => setHandle(true)}></ButtonDefault>
+            )
+        }
+    }
+
     return(
         <div className="container">
             <div>
                 <div style={{marginBottom: '-5%'}}>
                     <h2>Pacientes</h2>
-    {/*             
-                <Button 
-                    style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'left', minWidth: '150px'}}  
-                    bsstyle="info"
-                    onClick={() => setHandle(true)}>
-                    Voltar</Button>
-                <Button 
-                    style={{backgroundColor: 'green', color: 'white', borderColor:'white', float: 'right', marginLeft: '35%', minWidth: '150px'}} 
-                    bsstyle="info"
-                    onClick={() => setHandle(false)}>
-                    Novo Paciente</Button> 
-                */}
-                    <ButtonDefault className="col-md-2" btnText="Voltar" style={{height:'40px'}}
-                    onClick={() => setHandle(true)}></ButtonDefault>
-                    <ButtonDefault className="col-md-2" btnText="Novo Paciente" style={{float: 'right', height:'40px'}}
-                    onClick={() => setHandle(false)}></ButtonDefault>
+                    {handleButton()}
                 </div>
                 <div style={{marginTop: '80px'}}>
                     {handleCont()}
