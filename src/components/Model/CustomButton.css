@@ -5,3 +5,10 @@
     color: white;
     font-variant: all-petite-caps;
 }
+
+.checkboxStyle{ 
+    border-color: #8b8b8b !important;
+    border-radius: 20px !important;
+    background: #bbbbbb !important;
+    color: #3f3f3f !important;
+}
