@@ -1,7 +1,4 @@
-import React, { Component } from "react";
-import { Button } from "react-bootstrap";
-import cx from "classnames";
-import PropTypes from "prop-types";
+import React from "react";
 import "./CustomButton.css";
 
 export default props => {
