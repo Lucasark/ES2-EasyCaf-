@@ -89,7 +89,7 @@ export default props => {
             const res = await API.post('/exame/',
             {
                 paciente: {
-                    id: 4
+                    id: paciente
                 },
                 motivo: {
                     dor_toraxica: dorToraxica,
